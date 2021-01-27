@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<fx:root type="VBox"
+         xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="main.java.controller.StationDetail">
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+        <!-- Station/Stop Name -->
+        <HBox>
+            <VBox.margin>
+                <Insets left="10" right="0" top="20" bottom="0"/>
+            </VBox.margin>
+            <Label fx:id='stationName'
+                   text="Station Name Not Found"
+                   style="-fx-font-weight: bold; -fx-font-size: 18;"
+                   maxWidth='600'/>
+            <Label fx:id='stopName'
+                   text="Stop -------"
+                   style="-fx-text-fill: orange; -fx-font-weight: bold;"
+                   prefWidth='125'>
+                   <HBox.margin>
+                       <Insets left="300" right="10" top="5" bottom="0"/>
+                   </HBox.margin>
+            </Label>
+        </HBox>
+        <!-- Station Fare -->
+        <HBox maxWidth="550">
+            <VBox.margin>
+                <Insets left="10" right="0" top="20" bottom="1"/>
+            </VBox.margin>
+            <Label text="Fare"
+                   prefWidth='125'/>
+            <TextField fx:id="fareTextBox"
+                       prefWidth="200">
+                <HBox.margin>
+                    <Insets left="10" right="0" top="0" bottom="0"/>
+                </HBox.margin>
+            </TextField>
+            <Hyperlink fx:id="updateButton"
+                   onAction="#updateFare"
+                   text="Update Fare"
+                   style="-fx-text-fill: blue; -fx-underline: true;"
+                   prefWidth='125'>
+                   <HBox.margin>
+                       <Insets left="10" right="0" top="0" bottom="0"/>
+                   </HBox.margin>
+            </Hyperlink>
+        </HBox>
+        <!-- Intersection Info -->
+        <HBox maxWidth="550">
+            <VBox.margin>
+                <Insets left="10" right="0" top="20" bottom="1"/>
+            </VBox.margin>
+            <Label text="Nearest Intersection"
+                   prefWidth='125'/>
+            <Label fx:id="intersection"
+                   text="Not Available for Train Stations"
+                   style="-fx-text-fill: grey;">
+                   <HBox.margin>
+                       <Insets left="20" right="0" top="0" bottom="0"/>
+                   </HBox.margin>
+            </Label>
+        </HBox>
+
+        <!-- Open/Close Station -->
+        <VBox maxWidth="550">
+            <VBox.margin>
+                <Insets left="10" right="0" top="20" bottom="1"/>
+            </VBox.margin>
+            <CheckBox fx:id="openStationCheck"
+                      text="Open Station"
+                      prefWidth='125' onAction="#updateOpenStatus"/>
+            <Label text="When checked, passnegers can enter this station."
+                   style="-fx-text-fill: grey;"/>
+        </VBox>
+
+        <HBox>
+            <VBox.margin>
+                <Insets left="10" right="0" top="20" bottom="1"/>
+            </VBox.margin>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Back"
+                    onAction="#back"/>
+        </HBox>
+
+</fx:root>

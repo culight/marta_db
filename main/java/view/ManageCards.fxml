@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<fx:root type="VBox"
+         xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="main.java.controller.ManageCards">
+
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+
+    <Label text="Breeze Cards" style="-fx-font-weight: bold; -fx-font-size: 18;"/>
+
+    <TableView fx:id="breezeCardTable">
+        <VBox.margin>
+            <Insets left="0" right="0" top="1" bottom="1"/>
+        </VBox.margin>
+    </TableView>
+
+    <HBox>
+        <VBox.margin>
+            <Insets left="0" right="0" top="1" bottom="1"/>
+        </VBox.margin>
+        <TextField fx:id="addBreezeCardField">
+            <HBox.margin>
+                <Insets left="0" right="10" top="0" bottom="0"/>
+            </HBox.margin>
+        </TextField>
+        <Button text="Add Card" fx:id="addCardButton" onAction="#addCard"/>
+    </HBox>
+
+    <VBox style="-fx-border-width: 1; -fx-border-style: solid;">
+        <VBox.margin>
+            <Insets left="50" right="50" top="30" bottom="30"/>
+        </VBox.margin>
+        <Label text="Add Value to Selected Card"/>
+        <HBox>
+            <Label text="Credit Card #" prefWidth="125" alignment="CENTER_RIGHT"/>
+            <TextField fx:id="ccField">
+                <HBox.margin>
+                    <Insets left="5" right="0" top="0" bottom="0"/>
+                </HBox.margin>
+            </TextField>
+        </HBox>
+        <HBox>
+            <padding><Insets left="5" right="5" top="5" bottom="5"/></padding>
+            <Label text="Value"  prefWidth="125" alignment="CENTER_RIGHT"/>
+            <TextField fx:id="valueField">
+                <HBox.margin>
+                    <Insets left="5" right="50" top="0" bottom="0"/>
+                </HBox.margin>
+            </TextField>
+            <Button text="Add Value" fx:id="addValueButton" onAction="#addValue"/>
+        </HBox>
+    </VBox>
+
+    <HBox>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Back" onAction="#back"/>
+    </HBox>
+</fx:root>

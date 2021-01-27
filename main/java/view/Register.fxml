@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.sun.javafx.charts.Legend?>
+<?import javafx.geometry.Insets?>
+
+<fx:root type="VBox"
+         xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="main.java.controller.Register">
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+
+    <HBox >
+        <Label text="Create a MARTA Account"
+               style="-fx-font-weight: bold; -fx-font-size: 18;"/>
+    </HBox>
+
+    <HBox>
+        <VBox.margin>
+            <Insets left="10" right="0" top="10" bottom="1"/>
+        </VBox.margin>
+        <Label text="Username" prefWidth="120"/>
+        <TextField prefWidth="200"
+                   fx:id="username">
+            <HBox.margin>
+                <Insets left="0" right="10" top="0" bottom="0"/>
+            </HBox.margin>
+        </TextField>
+    </HBox>
+
+    <HBox >
+        <VBox.margin>
+            <Insets left="10" right="0" top="1" bottom="1"/>
+        </VBox.margin>
+        <Label text="Email Address" prefWidth="120"/>
+        <TextField prefWidth="200"
+                   fx:id="emailAddress">
+            <HBox.margin>
+                <Insets left="0" right="10" top="0" bottom="0"/>
+            </HBox.margin>
+        </TextField>
+    </HBox>
+
+
+    <HBox >
+        <VBox.margin>
+            <Insets left="10" right="0" top="1" bottom="1"/>
+        </VBox.margin>
+        <Label text="Password" prefWidth="120"/>
+        <PasswordField prefWidth="200"
+                   fx:id="password">
+                  <HBox.margin>
+                    <Insets left="0" right="10" top="0" bottom="0"/>
+                  </HBox.margin>
+        </PasswordField>
+    </HBox>
+
+     <HBox >
+        <VBox.margin>
+            <Insets left="10" right="0" top="1" bottom="1"/>
+        </VBox.margin>
+        <Label text="Confirm Password" prefWidth="120"/>
+        <PasswordField prefWidth="200"
+                   fx:id="confirmPassword">
+                  <HBox.margin>
+                    <Insets left="0" right="10" top="0" bottom="0"/>
+                  </HBox.margin>
+        </PasswordField>
+    </HBox>
+
+    <VBox alignment = "CENTER">
+
+            <VBox.margin>
+              <Insets left="20" right="20" top="20" bottom="20"/>
+            </VBox.margin>
+        <VBox style="-fx-border-style: solid inside;"/>
+
+        <HBox>
+            <VBox.margin>
+            <Insets left="0" right="0" top="1" bottom="20"/>
+            </VBox.margin>
+               <Label text="Breezecard"
+               style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+               <HBox.margin>
+                  <Insets left="10" right="10" top="10" bottom="10"/>
+               </HBox.margin>
+        </HBox>
+
+
+    <HBox maxWidth="550">
+      <VBox.margin>
+        <Insets left="10" right="0" top="20" bottom="1"/>
+      </VBox.margin>
+
+      <VBox>
+        <fx:define>
+          <ToggleGroup fx:id="breezecardToggleGroup"/>
+        </fx:define>
+
+        <children>
+          <RadioButton text="Use my existing Breezecard" toggleGroup="$breezecardToggleGroup">
+          <VBox.margin>
+            <Insets left="0" right="0" top="0" bottom="5"/>
+          </VBox.margin>
+        </RadioButton>
+
+        <Label text="Card Number"
+             prefWidth='125' maxHeight="5"/>
+        <TextField prefWidth="250"
+               fx:id="cardNumber">
+          <HBox.margin>
+            <Insets left="30" right="0" top="0" bottom="0"/>
+          </HBox.margin>
+        </TextField>
+
+        <RadioButton text="Get a new breezecard" toggleGroup="$breezecardToggleGroup">
+          <VBox.margin>
+            <Insets left="0" right="0" top="0" bottom="5"/>
+          </VBox.margin>
+        </RadioButton>
+        </children>
+
+      </VBox>
+    </HBox>
+
+        <HBox alignment = "CENTER">
+        <Button text="Create Account"
+                fx:id="createAccountBtn"
+                onAction="#createAccount"/>
+        </HBox>
+
+    </VBox>
+    <Pane VBox.vgrow="ALWAYS"/>
+    <HBox>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Back" onAction="#back"/>
+    </HBox>
+</fx:root>
+
+
+
+

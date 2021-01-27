@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<fx:root type="VBox" xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="main.java.controller.PassengerFlow">
+
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+
+    <HBox>
+        <VBox.margin>
+            <Insets left="0" right="0" top="5" bottom="5"/>
+        </VBox.margin>
+        <VBox>
+            <HBox>
+                <Label text="Start Time">
+                    <HBox.margin>
+                        <Insets left="0" right="5" top="0" bottom="0"/>
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="startTime"/>
+            </HBox>
+            <HBox>
+                <Label text="End Time"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="endTime"/>
+            </HBox>
+        </VBox>
+        <VBox>
+            <Pane VBox.vgrow="ALWAYS"/>
+            <HBox>
+                <Button fx:id="viewBtn" text="Update" onAction="#update">
+                    <HBox.margin>
+                        <Insets left="5" right="5" top="0" bottom="0"/>
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="createBtn" text="Reset" onAction="#reset"/>
+            </HBox>
+            <Pane VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+    </HBox>
+
+    <TableView fx:id="flowTable"/>
+
+    <HBox>
+        <VBox.margin>
+            <Insets left="0" right="0" top="5" bottom="0"/>
+        </VBox.margin>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Back"
+                onAction="#back"/>
+    </HBox>
+
+</fx:root>

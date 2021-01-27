@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.sun.javafx.charts.Legend?>
+<?import javafx.geometry.Insets?>
+
+<fx:root type="VBox"
+         xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="main.java.controller.Login"
+         alignment="CENTER">
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+
+    <HBox alignment = "CENTER">
+        <Label text="LogIn"
+               style="-fx-font-weight: bold; -fx-font-size: 18;"/>
+    </HBox>
+
+    <HBox alignment="CENTER">
+        <VBox.margin>
+            <Insets left="0" right="0" top="1" bottom="1"/>
+        </VBox.margin>
+        <Label text="Username"/>
+        <TextField prefWidth="200"
+                   fx:id="username">
+            <HBox.margin>
+                <Insets left="0" right="10" top="0" bottom="0"/>
+            </HBox.margin>
+        </TextField>
+    </HBox>
+
+
+    <HBox alignment="CENTER">
+        <VBox.margin>
+            <Insets left="0" right="0" top="1" bottom="1"/>
+        </VBox.margin>
+        <Label text="Password"/>
+        <PasswordField prefWidth="200"
+                   fx:id="password">
+            <HBox.margin>
+                <Insets left="0" right="10" top="0" bottom="0"/>
+            </HBox.margin>
+        </PasswordField>
+    </HBox>
+
+    <HBox alignment = "CENTER">
+        <Button text="Login" fx:id="loginBtn" onAction="#login"/>
+    </HBox>
+
+    <HBox alignment = "CENTER">
+        <Button text="Register" fx:id="registerBtn" onAction="#register"/>
+    </HBox>
+
+
+</fx:root>

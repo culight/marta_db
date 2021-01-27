@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<fx:root type="VBox"
+         xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         spacing="20"
+         fx:controller="main.java.controller.AdminMain">
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+    <HBox alignment="CENTER">
+        <VBox.margin>
+            <Insets top="100"/>
+        </VBox.margin>
+        <Button fx:id="stationMgmntButton"
+                text="Station Management"
+                onAction="#navToStationMgmnt"/>
+    </HBox>
+
+    <HBox alignment="CENTER">
+
+        <Button fx:id="suspCardsButton"
+                text="Suspended Cards"
+                onAction="#navToSuspCards"/>
+    </HBox>
+
+    <HBox alignment="CENTER">
+
+        <Button fx:id="breezecardMgmntButton"
+                text="Breeze Card Management"
+                onAction="#navToBreezecardMgmnt"/>
+    </HBox>
+
+    <HBox alignment="CENTER">
+
+        <Button fx:id="passFlowReportButton"
+                text="Passenger Flow Report"
+                onAction="#navToPassFlowReport"/>
+    </HBox>
+
+    <HBox alignment="CENTER">
+        <padding><Insets top="30"/></padding>
+        <Button fx:id="logOutButton"
+                text="Log Out"
+                onAction="#logOut"/>
+    </HBox>
+
+</fx:root>

@@ -1,0 +1,63 @@
+CREATE TABLE IF NOT EXISTS user (
+    username 	    VARCHAR(50),
+    password 	    VARCHAR(15) NOT NULL,
+    isAdmin		    BOOLEAN NOT NULL DEFAULT FALSE,
+    PRIMARY KEY (username),
+    CHECK (CHAR_LENGTH(password) >= 8)
+)ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS passenger (
+	username	    VARCHAR(50),
+	email 		    VARCHAR(50) NOT NULL,
+	PRIMARY KEY (username),
+    UNIQUE (email),
+	FOREIGN KEY (username) REFERENCES user (username) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS breezecard (
+	breezeNum		CHAR(16),
+	value		    DECIMAL(6,2) NOT NULL,
+	belongsTo	    VARCHAR(50),
+	PRIMARY KEY (breezeNum),
+	FOREIGN KEY (belongsTo) REFERENCES passenger (username) ON DELETE SET NULL ON UPDATE CASCADE,
+	CHECK (value >= 0.00 AND value <= 1000.00)
+)ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS conflict (
+    username	    VARCHAR(50),
+	breezeNum	    CHAR(16),
+	date_suspended  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT pkConflict PRIMARY KEY (username, breezeNum),
+	FOREIGN KEY (username) REFERENCES passenger (username) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (breezeNum) REFERENCES breezecard (breezeNum) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS station (
+	stopID		    VARCHAR(50),
+	name		    VARCHAR(50) NOT NULL,
+	isTrain		    BOOLEAN NOT NULL,
+	fare		    DECIMAL(4,2) NOT NULL DEFAULT 0,
+	isOpen		    BOOLEAN NOT NULL DEFAULT TRUE,
+	PRIMARY KEY (stopID),
+	UNIQUE (name, isTrain),
+	CHECK (fare >= 0.00 AND fare <= 50.00)
+)ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS trip (
+	breezeNum	    CHAR(16),
+	time_start	    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	current_fare    DECIMAL(4,2) NOT NULL,
+	startID		    VARCHAR(50) NOT NULL,
+	endID		    VARCHAR(50),
+	CONSTRAINT pkTrip PRIMARY KEY (breezeNum, time_start),
+	FOREIGN KEY (breezeNum) REFERENCES breezecard (breezeNum) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (startID) REFERENCES station (stopID) ON DELETE RESTRICT ON UPDATE CASCADE,
+	FOREIGN KEY (endID) REFERENCES station (stopID) ON DELETE RESTRICT ON UPDATE CASCADE
+)ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS bus (
+	endID		    VARCHAR(50),
+	intersection    VARCHAR(255),
+	PRIMARY KEY (endID),
+	FOREIGN KEY (endID) REFERENCES station (stopID) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB;

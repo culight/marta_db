@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<fx:root type="VBox" xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="main.java.controller.CreateStation">
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+
+    <!-- Station Name -->
+    <HBox maxWidth="550">
+        <VBox.margin>
+        	<Insets left="10" right="0" top="20" bottom="1"/>
+        </VBox.margin>
+        <Label text="Station Name"
+               prefWidth='125'/>
+        <TextField prefWidth="450"
+                   fx:id="stationNameTextBox">
+	        <HBox.margin>
+	        	<Insets left="30" right="0" top="0" bottom="0"/>
+	        </HBox.margin>
+        </TextField>
+    </HBox>
+
+    <!-- StopId -->
+    <HBox maxWidth="550">
+        <VBox.margin>
+        	<Insets left="10" right="0" top="20" bottom="1"/>
+        </VBox.margin>
+        <Label text="Stop Id"
+               prefWidth='125'/>
+        <TextField prefWidth="450"
+                   fx:id="stopIDTextBox">
+	        <HBox.margin>
+	        	<Insets left="30" right="0" top="0" bottom="0"/>
+	        </HBox.margin>
+        </TextField>
+    </HBox>
+
+
+    <!-- Entry Fare -->
+    <HBox maxWidth="550">
+        <VBox.margin>
+        	<Insets left="10" right="0" top="20" bottom="1"/>
+        </VBox.margin>
+        <Label text="Entry Fare"
+               prefWidth='125'/>
+        <TextField prefWidth="450"
+                   fx:id="entryFareTextBox">
+	        <HBox.margin>
+	        	<Insets left="30" right="0" top="0" bottom="0"/>
+	        </HBox.margin>
+        </TextField>
+    </HBox>
+
+    <!--  Station -->
+    <HBox maxWidth="550">
+    	<VBox.margin>
+    		<Insets left="10" right="0" top="20" bottom="1"/>
+    	</VBox.margin>
+    	<Label text="Station Type"
+    		   prefWidth='125'/>
+    	<VBox>
+    		<fx:define>
+    			<ToggleGroup fx:id="stationToggleGroup"/>
+    		</fx:define>
+    		<children>
+    			<RadioButton text="Bus Station" toggleGroup="$stationToggleGroup">
+					<VBox.margin>
+						<Insets left="0" right="0" top="0" bottom="5"/>
+					</VBox.margin>
+				</RadioButton>
+
+				<Label text="Nearest Intersection"
+					   prefWidth='125' maxHeight="5"/>
+				<TextField prefWidth="250"
+						   fx:id="nearestIntersectionTextBox">
+					<HBox.margin>
+						<Insets left="30" right="0" top="0" bottom="0"/>
+					</HBox.margin>
+				</TextField>
+
+				<RadioButton text="Train Station" toggleGroup="$stationToggleGroup">
+					<VBox.margin>
+						<Insets left="0" right="0" top="0" bottom="5"/>
+					</VBox.margin>
+				</RadioButton>
+    		</children>
+
+    	</VBox>
+    </HBox>
+
+
+    <!-- Open Station -->
+    <HBox maxWidth="550" spacing="30">
+    	<VBox.margin>
+    		<Insets left="10" right="0" top="20" bottom="1"/>
+    	</VBox.margin>
+
+    	<VBox>
+			<CheckBox fx:id="isOpenCheckBox" text="Open Station">
+				<VBox.margin>
+					<Insets left="0" right="0" top="20" bottom="0"/>
+				</VBox.margin>
+			</CheckBox>
+    		<Label text="When checked, passengers can enter at this station."
+    			    prefWidth="450">
+				<VBox.margin>
+					<Insets left="0" right="0" top="0" bottom="20"/>
+				</VBox.margin>
+			</Label>
+    		<Button fx:id="createStation" text="Create Station" onAction="#addStation">
+				<VBox.margin>
+					<Insets left="300" right="0" top="0" bottom="20"/>
+				</VBox.margin>
+			</Button>
+    	</VBox>
+    </HBox>
+
+	<HBox>
+		<Pane HBox.hgrow="ALWAYS"/>
+		<Button text="Back" onAction="#back"/>
+	</HBox>
+
+</fx:root>
